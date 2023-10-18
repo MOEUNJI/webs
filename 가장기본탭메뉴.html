@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Abel');
+
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    a {
+        text-decoration: none;
+        color: #666;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    body {
+        background: #0137a1 url(https://tistory3.daumcdn.net/tistory/2808281/skin/images/background03.jpg) no-repeat center center fixed;
+        background-size: cover;
+        font-family: 'Abel', sans-serif;
+        font-size: 14px;
+        line-height: 1.6em;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background: rgba(50, 37, 11, 0.9);
+        width: 100%;
+        height: 100%;
+    }
+
+    #tab-menu {
+        width: 600px;
+        background: #eaa110;
+        position: absolute;
+        left: 50%;
+        top: 100px;
+        transform: translatex(-50%);
+        border-radius: 4px;
+    }
+
+    #tab-btn ul {
+        overflow: hidden;
+    }
+
+    #tab-btn li {
+        float: left;
+        width: 90px;
+        text-align: center;
+    }
+
+    #tab-btn li a {
+        display: block;
+        color: #fff;
+        padding: 15px 20px;
+        font-weight: bold;
+    }
+
+    #tab-btn li.active a {
+        border-bottom: 3px solid #2b210e;
+        color: #2b210e;
+    }
+
+    #tab-cont {
+        width: 100%;
+        background: #fff;
+        padding: 20px;
+        box-sizing: border-box;
+        border-radius: 0 0 4px 4px;
+    }
+</style>
+
+<body>
+    <div id="tab-menu">
+        <div id="tab-btn">
+            <ul>
+                <li class="active"><a href="#">Tab1</a></li>
+                <li><a href="#">Tab2</a></li>
+                <li><a href="#">Tab3</a></li>
+                <li><a href="#">Tab4</a></li>
+                <li><a href="#">Tab5</a></li>
+            </ul>
+        </div>
+        <div id="tab-cont">
+            <div>1. With so many new products and gadgets coming to market every day, it's no wonder you have not heard
+                anything about them. We have decided to put together an up-to-date list of 12 different US products that
+                are now available in South Korea - many of which have been crowdfunded. You can add them to your own
+                wish list or as gifts for your loved ones! If you would like more information about the products or to
+                buy them, just click on the links in the article. These fantastic products come with a fun guarantee and
+                will impress you and your friends. So, test it out!</div>
+            <div>2. How would you like to receive a free foot massage with every step you take? That and much more now
+                is entirely possible with MindInsole! These fantastic insoles are designed not just to relieve foot
+                fatigue and cure achy feet, but actually to heal your body from the inside out.</div>
+            <div>3. MindInsole combines ancient wisdom with the latest technology to massage critical areas of your feet
+                which promote health, improve blood circulation, relieve back pain, lower stress levels, and naturally
+                boost endurance. Each insole makes use of 400 acupoints that were scientifically designed to massage
+                critical areas of your feet. Besides, the insoles use 5 cooling magnets that help to balance your body's
+                energy levels to make you feel great again!</div>
+            <div>4. You can wear these insoles with any shoe, during any activity and during any exercise. As we get
+                older, achy feet may prevent us from walking as much as we need to stay fit – MindInsole helps you get
+                rid of this problem and enjoy exercising with renewed vigor. With MindInsole, you can walk (or run!)
+                your way to health!</div>
+            <div>5. Have you ever been stuck in a hotel that doesn't have wifi, or has a really weak signal? Have you
+                ever been in a situation where you can't get a strong connection on your phone, your ipad or your
+                laptop? Many hotels provide you only with an ethernet cable, which is useless for your phone or tablet.
+                And if you're using a laptop, you're stuck at the desk not being able to move due to a short ethernet
+                cable. Now you can have a super-strong, ultra-private wifi in any hotel that has ethernet!</div>
+        </div>
+    </div>
+</body>
+<script>
+    var tabBtn = $("#tab-btn > ul > li");     //각각의 버튼을 변수에 저장
+    var tabCont = $("#tab-cont > div");       //각각의 콘텐츠를 변수에 저장
+
+    //컨텐츠 내용을 숨겨주세요!
+    tabCont.hide().eq(0).show();
+
+    tabBtn.click(function () {
+        var target = $(this);         //버튼의 타겟(순서)을 변수에 저장
+        var index = target.index();   //버튼의 순서를 변수에 저장
+        tabBtn.removeClass("active");    //버튼의 클래스를 삭제
+        target.addClass("active");       //타겟의 클래스를 추가
+        tabCont.css("display", "none");
+        tabCont.eq(index).css("display", "block");
+    });
+</script>
+
+</html>
